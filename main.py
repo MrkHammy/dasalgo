@@ -58,11 +58,10 @@ def show_menu():
 def run_once(choice):
     if choice == "1":
         coins, amount = read_coins()
-        remaining, used = coin_change_greedy(coins, amount)
-        lines = [f"AMOUNT: {amount}", f"COINS: {coins}", "USED COINS (DENOMINATION: COUNT):"]
-        if used:
-            for coin, count in used:
-                lines.append(f"  {coin}: {count}")
+        remaining, selected_coins = coin_change_greedy(coins, amount)
+        lines = [f"AMOUNT: {amount}", f"AVAILABLE COINS: {coins}", "SELECTED COINS ARRAY:"]
+        if selected_coins:
+            lines.append(f"  {selected_coins}")
         else:
             lines.append("  NO COINS USED.")
         lines.append(f"REMAINING AMOUNT: {remaining}")

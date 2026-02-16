@@ -58,7 +58,8 @@ def read_jobs():
     count = _input_int("Number of jobs: ", 1)
     jobs = []
     for index in range(count):
-        job_id = input(f"Job id (default J{index + 1}): ") or f"J{index + 1}"
+        job_id = f"J{index + 1}"
+        print(f"Job {index + 1} id is set to: {job_id}")
         deadline = _input_int("  deadline (positive integer): ", 1)
         profit = _input_float("  profit: ")
         jobs.append((job_id, deadline, profit))

@@ -27,15 +27,15 @@ def _input_int(prompt, min_val=None):
 def coin_change_greedy(coins, amount):
     coins_sorted = sorted(coins, reverse=True)
     remaining = amount
-    used = []
+    selected_coins = []
     for coin in coins_sorted:
         if remaining <= 0:
             break
         count = remaining // coin
         if count > 0:
-            used.append((coin, int(count)))
+            selected_coins.extend([coin] * int(count))
             remaining -= coin * count
-    return remaining, used
+    return remaining, selected_coins
 
 
 def read_coins():
